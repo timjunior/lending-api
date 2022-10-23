@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
+var cors = require("cors");
 
 dotenv.config();
 
@@ -1194,11 +1195,18 @@ const holidayData = {
   },
 };
 
+app.use(cors());
+
+var corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
 app.get("/", (req: Request, res: Response) => {
   res.send({ message: "Hello express wiht TS" });
 });
 
-app.get("/holidays", (req: Request, res: Response) => {
+app.get("/holidays", cors(corsOptions), (req: Request, res: Response) => {
   res.status(200);
   res.json(holidayData);
 });
