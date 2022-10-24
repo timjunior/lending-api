@@ -1,10 +1,13 @@
+import { createProduct } from "./src/models/routes/mongoose";
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
+import bodyParser from "body-parser";
 var cors = require("cors");
 
 dotenv.config();
 
 const app: Express = express();
+app.use(bodyParser.json());
 const port = process.env.PORT;
 
 const holidayData = {
@@ -1210,6 +1213,8 @@ app.get("/holidays", cors(corsOptions), (req: Request, res: Response) => {
   res.status(200);
   res.json(holidayData);
 });
+
+app.post("/products", cors(corsOptions), createProduct);
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
