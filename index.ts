@@ -1201,7 +1201,7 @@ const holidayData = {
 app.use(cors());
 
 var corsOptions = {
-  origin: "*",
+  origin: ["https://ta-lending-api.herokuapp.com"],
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
