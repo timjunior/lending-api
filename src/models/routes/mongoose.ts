@@ -5,7 +5,8 @@ import Product from "../../models/products";
 
 mongoose
   .connect(
-    "mongodb+srv://tg-lender:GZSCIeHCWGyrmyZE@cluster0.rwg4svv.mongodb.net/my-products?retryWrites=true&w=majority"
+    process.env.MONGODB_URI ||
+      "mongodb+srv://tg-lender:GZSCIeHCWGyrmyZE@cluster0.rwg4svv.mongodb.net/my-products?retryWrites=true&w=majority"
   )
   .then(() => {
     console.log("Connected to Database...!");
