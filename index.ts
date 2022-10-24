@@ -1209,7 +1209,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send({ message: "Hello express wiht TS" });
 });
 
-app.get("/holidays", cors(corsOptions), (req: Request, res: Response) => {
+app.get("/holidays", (req: Request, res: Response) => {
   res.status(200);
   res.json(holidayData);
 });
