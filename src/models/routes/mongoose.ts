@@ -16,11 +16,13 @@ mongoose
   });
 
 export const createProduct = async (req: Request, res: Response, next: any) => {
-  const createdProduct = new Product({
-    name: req.body.name,
-    price: req.body.price,
-  });
+  res.json({ createProduct: "called" });
 
-  const result = await createdProduct.save();
-  res.json(result);
+  //   const createdProduct = new Product({
+  //     name: req.body.name,
+  //     price: req.body.price,
+  //   });
+
+  //   const result = await createdProduct.save();
+  //   res.json(result);
 };
