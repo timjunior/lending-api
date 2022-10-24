@@ -8,7 +8,7 @@ dotenv.config();
 
 const app: Express = express();
 app.use(bodyParser.json());
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
 
 const holidayData = {
   scotland: {
