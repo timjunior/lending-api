@@ -1,4 +1,4 @@
-import { createProduct } from "./src/models/routes/mongoose";
+import { createProduct, getProducts } from "./src/models/routes/mongoose";
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
@@ -1215,6 +1215,7 @@ app.get("/holidays", cors(corsOptions), (req: Request, res: Response) => {
 });
 
 app.post("/products", cors(corsOptions), createProduct);
+app.get("/products", cors(corsOptions), getProducts);
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
